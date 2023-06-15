@@ -1,0 +1,33 @@
+type Query {
+  getPosts: [Post]
+  getPost(id: ID!): Post
+}
+
+type Mutation {
+  addCategory(id: ID!, title: String!): Post
+  addComment(id: ID!, text: String!): Post
+  like(id: ID!, value: Boolean!): Post
+}
+
+type Category {
+  id: ID!
+  title: String!
+}
+
+type Comment {
+  id: ID!
+  text: String!
+}
+
+type Post {
+  id: ID!
+  title: String!
+  date: String!
+  summary: String
+  location: String
+  imageSrc: String
+  likes: Int
+  dislikes: Int
+  categories: [Category]
+  comments: [Comment]
+}
